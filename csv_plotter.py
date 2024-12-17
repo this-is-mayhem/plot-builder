@@ -27,6 +27,8 @@ class csv_plotter:
             axis_labels = file_config["axis"]["labels"]
             axis_numbers_precision = file_config["axis"]["precision"]
             single_x_axis = file_config["axis"]["single x axis"]
+            x_lim = file_config["axis"]["x limits"]
+            y_lim = file_config["axis"]["y limits"]
             legend = file_config["legend"]
             figure_size = file_config["figure size"]
             figure_dpi = file_config["dpi"]
@@ -53,6 +55,9 @@ class csv_plotter:
                     plt.plot(data.iloc[:, i], data.iloc[:, i + 1], label=f"{legend[i // 2]}")
 
             # Настройка осей и легенды
+            plt.gca().set_xlim(x_lim)
+            plt.gca().set_ylim(y_lim)
+
             plt.xlabel(f"{axis_labels[0]}", fontsize=14)
             plt.ylabel(f"{axis_labels[1]}", fontsize=14)
             plt.tick_params(axis="both", which="major", labelsize=14)

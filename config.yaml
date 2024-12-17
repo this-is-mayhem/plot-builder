@@ -17,8 +17,10 @@
     labels:
       - "$x$, м"
       - "$y$, м"
-    precision: [2, 2]
+    x limits: [-0.3, 0.2]
+    y limits: [0, 0.08]
+    precision: [1, 2]
     single x axis: true
   legend: ~
   figure size: [ 16.5, 10 ]
-  dpi: 150
+  dpi: 300
