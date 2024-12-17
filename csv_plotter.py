@@ -5,11 +5,11 @@ import yaml
 from matplotlib import rcParams
 import matplotlib.ticker as ticker
 
-def format_x_ticker(x, pos):
-    return f'{x:.1f}'.replace('.', ',')
+def format_x_ticker(x, pos, precision=2):
+    return f'{x:.{precision}f}'.replace('.', ',')
 
-def format_y_ticker(y, pos):
-    return f'{y:.0f}'.replace('.', ',')
+def format_y_ticker(y, pos, precision=2):
+    return f'{y:.{precision}f}'.replace('.', ',')
 
 class csv_plotter:
     def __init__(self, working_dir, yaml_name="config.yaml"):
@@ -24,8 +24,9 @@ class csv_plotter:
     def plot_data(self):
         for file_config in self.config:
             file_name = file_config["name"]
-            axis_description = file_config["axis description"]
-            single_x_axis = file_config["single x axis"]
+            axis_labels = file_config["axis"]["labels"]
+            axis_numbers_precision = file_config["axis"]["precision"]
+            single_x_axis = file_config["axis"]["single x axis"]
             legend = file_config["legend"]
             figure_size = file_config["figure size"]
             figure_dpi = file_config["dpi"]
@@ -52,12 +53,12 @@ class csv_plotter:
                     plt.plot(data.iloc[:, i], data.iloc[:, i + 1], label=f"{legend[i // 2]}")
 
             # Настройка осей и легенды
-            plt.xlabel(f"{axis_description[0]}", fontsize=14)
-            plt.ylabel(f"{axis_description[1]}", fontsize=14)
+            plt.xlabel(f"{axis_labels[0]}", fontsize=14)
+            plt.ylabel(f"{axis_labels[1]}", fontsize=14)
             plt.tick_params(axis="both", which="major", labelsize=14)
 
-            plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(format_x_ticker))
-            plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(format_y_ticker))
+            plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axis_numbers_precision[0])))
+            plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axis_numbers_precision[1])))
 
             if data.shape[1] != 2:
                 plt.legend(fontsize=12)

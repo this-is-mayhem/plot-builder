@@ -13,10 +13,12 @@
 #  dpi: 300
 
 - name: contour.csv
-  axis description:
-    - "$x$, м"
-    - "$y$, м"
-  single x axis: true
+  axis:
+    labels:
+      - "$x$, м"
+      - "$y$, м"
+    precision: [2, 2]
+    single x axis: true
   legend: ~
   figure size: [ 16.5, 10 ]
   dpi: 150
