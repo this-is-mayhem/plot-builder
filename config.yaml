@@ -1,0 +1,22 @@
+#- name: data1.csv # имя csv файла
+#  axis description: [Время $t$, Скорость $v$] # подпись оси X, подпись оси Y
+#  single x axis: true
+#  legend: [$v_1$, $v_2$] # подпись легенды
+#  figure size: [16.5, 10] # размер картинки в см
+#  dpi: 300 # качество
+#
+#- name: data2.csv
+#  axis description: [Расстояние $x$, Сила $F$]
+#  single x axis: false
+#  legend: [$F_1$, $F_2$]
+#  figure size: [ 10, 10 ]
+#  dpi: 300
+
+- name: contour.csv
+  axis description:
+    - "$x$, м"
+    - "$y$, м"
+  single x axis: true
+  legend: ~
+  figure size: [ 16.5, 10 ]
+  dpi: 150
