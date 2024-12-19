@@ -1,20 +1,43 @@
-- name: nozzreg.csv
+#- name: nozzreg.csv
+#  axes:
+#    labels:
+#      - "$x$, мм"
+#      - '$q_w$, МВт/м$^2$'
+#    x limits: [-400, 600]
+#    y limits: [0, 14]
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - "эксперимент"
+#      - "расчет NOZZReg"
+#      - "расчет ПРМ"
+#    style: # ["стиль линии", "стиль маркера"]
+#      - ["-", ""]
+#      - ["-", ""]
+#      - ["", "+"]
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+- name: temps_comparison.csv
   axes:
     labels:
-      - "$x$, мм"
-      - '$q_w$, МВт/м$^2$'
-    x limits: [-400, 600]
-    y limits: [0, 14]
+      - '$t$, с'
+      - '$T,\degree C$'
+    x limits: [0, 100]
+    y limits: [0, 1600]
     precision: [0, 0]
     single x axis: false
   charts:
     legend:
-      - "эксперимент"
-      - "расчет NOZZReg"
-      - "расчет ПРМ"
+      - "T1, ПРМ+ЛОГОС"
+      - "T2, ПРМ+ЛОГОС"
+      - "T1, тепловизор"
+      - "T2, тепловизор"
     style: # ["стиль линии", "стиль маркера"]
       - ["-", ""]
       - ["-", ""]
-      - ["", "+"]
+      - [":", ""]
+      - [":", ""]
   figure size: [ 16.5, 10 ]
   dpi: 300
