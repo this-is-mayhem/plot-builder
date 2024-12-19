@@ -1,69 +1,193 @@
-#- name: nozzreg.csv
+#- name: injection_comparison_contour.csv
 #  axes:
 #    labels:
-#      - "$x$, мм"
-#      - '$q_w$, МВт/м$^2$'
-#    x limits: [-400, 600]
-#    y limits: [0, 14]
-#    precision: [0, 0]
+#      - '$x$, м'
+#      - '$y$, м'
+#    x limits: [0, 0.3]
+#    y limits: [0, 0.08]
+#    precision: [1, 2]
+#    single x axis: false
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+#
+#- name: injection_comparison.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$\zeta_T$'
+#    x limits: [0, 0.3]
+#    y limits: [0, 1]
+#    precision: [2, 1]
 #    single x axis: false
 #  charts:
 #    legend:
-#      - "эксперимент"
-#      - "расчет NOZZReg"
-#      - "расчет ПРМ"
-#    style: # ["стиль линии", "стиль маркера"]
-#      - ["-", ""]
-#      - ["-", ""]
-#      - ["", "+"]
+#      - 'ПРМ'
+#      - 'формула'
+#    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
-#- name: temps_comparison.csv
+#- name: temps_comparison_K.csv
 #  axes:
 #    labels:
 #      - '$t$, с'
-#      - '$T,\degree C$'
+#      - '$T, K$'
 #    x limits: [0, 100]
-#    y limits: [0, 1600]
+#    y limits: [200, 1800]
 #    precision: [0, 0]
 #    single x axis: false
 #  charts:
 #    legend:
-#      - "T1, ПРМ+ЛОГОС"
-#      - "T2, ПРМ+ЛОГОС"
-#      - "T1, тепловизор"
-#      - "T2, тепловизор"
-#    style: # ["стиль линии", "стиль маркера"]
-#      - ["-", ""]
-#      - ["-", ""]
-#      - [":", ""]
-#      - [":", ""]
+#      - 'T1, ПРМ+ЛОГОС'
+#      - 'T2, ПРМ+ЛОГОС'
+#      - 'T1, тепловизор'
+#      - 'T2, тепловизор'
+#    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
-- name: blhd_secheniya.csv
+#- name: eff_T.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$\zeta_T$'
+#    x limits: [0.05, 0.2]
+#    y limits: [0, 1]
+#    precision: [2, 1]
+#    single x axis: false
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: eff_G.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$g_{вд} \cdot 10^{-2}$'
+#    x limits: [0.05, 0.2]
+#    y limits: [0, 1.2]
+#    precision: [2, 1]
+#    single x axis: false
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: T_wall_comparison.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$T$, K'
+#    x limits: [0.05, 0.2]
+#    y limits: [500, 2200]
+#    precision: [2, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '$T_w$ внутр.'
+#      - '$T_w$ внеш.'
+#      - '$T_w$ внеш. эксперимент'
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: hew.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$h_{ew}$, МДж/кг'
+#    x limits: [-0.3, 0.2]
+#    y limits: [-5, 0]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: vkladysh_temps.csv
+#  axes:
+#    labels:
+#      - '$t$, с'
+#      - '$T$, K'
+#    x limits: [0, 10]
+#    y limits: [0, 3500]
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - 'Эксп. авторов'
+#      - 'Эксп. [...]'
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: vkladysh_v_wall.csv
+#  axes:
+#    labels:
+#      - '$t$, с'
+#      - '$v_{w}$, мм/с'
+#    x limits: [0, 10]
+#    y limits: [0, 0.35]
+#    precision: [0, 2]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - 'Мгновенная, эксп. авторов'
+#      - 'Средняя, эксп. авторов'
+#      - 'Мгновенная, эксп. [...]'
+#      - 'Средняя, эксп. [...]'
+#    style:
+#      - ['-','']
+#      - ['--','']
+#      - ['-','']
+#      - ['--','']
+#  figure size: [ 16.5, 12 ]
+#  dpi: 300
+
+#- name: vkladysh_temps_1.csv
+#  axes:
+#    labels:
+#      - '$t$, с'
+#      - '$T$, К'
+#    x limits: [0, 10]
+#    y limits: [0, 3000]
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - 'Эксп. авторов'
+#      - 'Эксп. [...]'
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+- name: vkladysh_v_wall_1.csv
   axes:
     labels:
-      - '$x$, м'
-      - '$y$, м'
-    x limits: [-0.3, 1]
-    y limits: [0, 0.4]
-    precision: [1, 1]
+      - '$t$, с'
+      - '$v_{w}$, мм/с'
+    x limits: [0, 11]
+    y limits: [0, 0.08]
+    precision: [0, 2]
     single x axis: false
   charts:
     legend:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
-      - "11"
-    style: ~
+      - 'Расчет по эксп. авторов'
+      - 'Расчет по эксп. [...]'
+      - 'Эксп. авторов'
+      - 'Эксп. [...]'
+    style:
+      - ['-','']
+      - ['-','']
+      - ['','P']
+      - ['','P']
   figure size: [ 16.5, 10 ]
   dpi: 300

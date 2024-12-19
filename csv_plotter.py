@@ -21,28 +21,37 @@ class csv_plotter:
         with open(os.path.join(self.dir, yaml_name), "r", encoding="UTF-8") as f:
             return yaml.safe_load(f)
 
-    def __prepare_style_dict(self, charts_dict):
+    def __read_csv(self, file_path, separator=";"):
+        """
+        Загружает CSV файл с учетом первого ряда:
+        - Если первая строка содержит текст, она используется как имена колонок.
+        - Если первая строка содержит числа, она используется как данные.
+        """
+        with open(file_path, 'r', encoding="UTF-8") as f:
+            first_line = f.readline().strip()
+
+        # Проверяем, содержит ли первая строка текст
+        if any(char.isalpha() for char in first_line):
+            # Если есть текст, загружаем с первой строкой как заголовком
+            df = pd.read_csv(file_path, header=0, sep=separator)
+        else:
+            # Если только числа, загружаем без заголовка
+            df = pd.read_csv(file_path, header=None, sep=separator)
+            # Задаем числовые индексы колонок
+            df.columns = [f"col_{i}" for i in range(df.shape[1])]
+
+        return df
+
+    def __prepare_style_dict(self, charts_dict, charts_cnt):
         charts_styles = []
-        charts_cnt = 0
-        if charts_dict["legend"] is not None:
-            charts_cnt = len(charts_dict["legend"])
-        if charts_dict["style"] is not None:
-            charts_cnt = len(charts_dict["style"])
         for i in range(0, charts_cnt):
             curve_style_dict = {}
             if charts_dict["legend"] is not None and charts_dict["legend"][i] is not None:
                 curve_style_dict["label"] = charts_dict["legend"][i]
-            else:
-                curve_style_dict["label"] = ""
             if charts_dict["style"] is not None and charts_dict["style"][i] is not None:
                 curve_style_dict["linestyle"] = charts_dict["style"][i][0]
                 curve_style_dict["marker"] = charts_dict["style"][i][1]
-            else:
-                curve_style_dict["linestyle"] = ""
-                curve_style_dict["marker"] = ""
             charts_styles.append(curve_style_dict)
-        if len(charts_styles) == 0:
-            charts_styles.append({})
         return charts_styles
 
     def plot_data(self):
@@ -60,15 +69,20 @@ class csv_plotter:
             legend = file_config["charts"]["legend"]
             style = file_config["charts"]["style"]
 
-            charts_styles = self.__prepare_style_dict(file_config["charts"])
-
             # обработка прочей информации
             figure_size = file_config["figure size"]
             figure_dpi = file_config["dpi"]
 
             # Считывание CSV файла
             file_path = os.path.join(self.dir, file_name)
-            data = pd.read_csv(file_path, sep=";")
+            data = self.__read_csv(file_path)
+
+            # подготовка словарей стилей графиков
+            if not single_x_axis:
+                curves_cnt = data.shape[1] / 2
+            else:
+                curves_cnt = data.shape[1] - 1
+            charts_styles = self.__prepare_style_dict(file_config["charts"], int(curves_cnt))
 
             cm = 1 / 2.54  # перевод сантиметров в дюймы для установки размера картинки
             plt.figure(figsize=(figure_size[0] * cm, figure_size[1] * cm))
@@ -97,7 +111,6 @@ class csv_plotter:
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
 
-            #if data.shape[1] != 2:
             if legend is not None:
                 plt.legend(fontsize=12)
             plt.grid(True)
