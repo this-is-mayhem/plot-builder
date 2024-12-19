@@ -21,6 +21,30 @@ class csv_plotter:
         with open(os.path.join(self.dir, yaml_name), "r", encoding="UTF-8") as f:
             return yaml.safe_load(f)
 
+    def __prepare_style_dict(self, charts_dict):
+        charts_styles = []
+        charts_cnt = 0
+        if charts_dict["legend"] is not None:
+            charts_cnt = len(charts_dict["legend"])
+        if charts_dict["style"] is not None:
+            charts_cnt = len(charts_dict["style"])
+        for i in range(0, charts_cnt):
+            curve_style_dict = {}
+            if charts_dict["legend"] is not None and charts_dict["legend"][i] is not None:
+                curve_style_dict["label"] = charts_dict["legend"][i]
+            else:
+                curve_style_dict["label"] = ""
+            if charts_dict["style"] is not None and charts_dict["style"][i] is not None:
+                curve_style_dict["linestyle"] = charts_dict["style"][i][0]
+                curve_style_dict["marker"] = charts_dict["style"][i][1]
+            else:
+                curve_style_dict["linestyle"] = ""
+                curve_style_dict["marker"] = ""
+            charts_styles.append(curve_style_dict)
+        if len(charts_styles) == 0:
+            charts_styles.append({})
+        return charts_styles
+
     def plot_data(self):
         for file_config in self.config:
             file_name = file_config["name"]
@@ -36,6 +60,8 @@ class csv_plotter:
             legend = file_config["charts"]["legend"]
             style = file_config["charts"]["style"]
 
+            charts_styles = self.__prepare_style_dict(file_config["charts"])
+
             # обработка прочей информации
             figure_size = file_config["figure size"]
             figure_dpi = file_config["dpi"]
@@ -47,23 +73,18 @@ class csv_plotter:
             cm = 1 / 2.54  # перевод сантиметров в дюймы для установки размера картинки
             plt.figure(figsize=(figure_size[0] * cm, figure_size[1] * cm))
 
+
             if data.shape[1] == 2:
                 # Для файлов с двумя столбцами: X и Y
-                plt.plot(data.iloc[:, 0], data.iloc[:, 1])
+                plt.plot(data.iloc[:, 0], data.iloc[:, 1], **charts_styles[0])
             elif single_x_axis:
                 # Общая ось X для Y1, Y2
                 for i in range(1, data.shape[1]):
-                    plt.plot(data.iloc[:, 0], data.iloc[:, i],
-                             label=f"{legend[i - 1]}",
-                             linestyle=style[i // 2][0],
-                             marker=style[i // 2][1])
+                    plt.plot(data.iloc[:, 0], data.iloc[:, i], **charts_styles[i-1])
             elif not single_x_axis:
                 # Разные оси X для каждой пары (X, Y)
                 for i in range(0, data.shape[1], 2):
-                    plt.plot(data.iloc[:, i], data.iloc[:, i + 1],
-                             label=f"{legend[i // 2]}",
-                             linestyle=style[i // 2][0],
-                             marker=style[i // 2][1])
+                    plt.plot(data.iloc[:, i], data.iloc[:, i + 1], **charts_styles[i // 2])
 
             # Настройка осей и легенды
             plt.gca().set_xlim(x_lim)
@@ -76,7 +97,8 @@ class csv_plotter:
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
 
-            if data.shape[1] != 2:
+            #if data.shape[1] != 2:
+            if legend is not None:
                 plt.legend(fontsize=12)
             plt.grid(True)
             plt.tight_layout()

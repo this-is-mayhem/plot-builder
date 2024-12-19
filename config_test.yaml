@@ -1,0 +1,52 @@
+- name: 1.csv
+  axes:
+    labels:
+      - "$x$, мм"
+      - '$y$, мм'
+    x limits: [-10, 10]
+    y limits: [0, 100]
+    precision: [0, 0]
+    single x axis: ~
+  charts:
+    legend: ~
+    style: ~
+  figure size: [ 16.5, 10 ]
+  dpi: 300
+
+- name: 2.csv
+  axes:
+    labels:
+      - '$x$, мм'
+      - '$y$, мм'
+    x limits: [-10, 10]
+    y limits: [-1, 1]
+    precision: [0, 0]
+    single x axis: true
+  charts:
+    legend:
+      - "sin"
+      - "cos"
+    style: # ["стиль линии", "стиль маркера"]
+      - ["-", "x"]
+      - ["--", "."]
+  figure size: [ 16.5, 10 ]
+  dpi: 300
+
+- name: 3.csv
+  axes:
+    labels:
+      - '$x$, мм'
+      - '$y$, мм'
+    x limits: [-10, 10]
+    y limits: [-1000, 2200]
+    precision: [0, 0]
+    single x axis: false
+  charts:
+    legend:
+      - '$x^3$'
+      - '$e^{x/1.2}$'
+    style: # ["стиль линии", "стиль маркера"]
+      - ["-", ""]
+      - ["-", ""]
+  figure size: [ 16.5, 10 ]
+  dpi: 300

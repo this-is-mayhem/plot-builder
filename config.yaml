@@ -19,25 +19,51 @@
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
-- name: temps_comparison.csv
+#- name: temps_comparison.csv
+#  axes:
+#    labels:
+#      - '$t$, с'
+#      - '$T,\degree C$'
+#    x limits: [0, 100]
+#    y limits: [0, 1600]
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - "T1, ПРМ+ЛОГОС"
+#      - "T2, ПРМ+ЛОГОС"
+#      - "T1, тепловизор"
+#      - "T2, тепловизор"
+#    style: # ["стиль линии", "стиль маркера"]
+#      - ["-", ""]
+#      - ["-", ""]
+#      - [":", ""]
+#      - [":", ""]
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+- name: blhd_secheniya.csv
   axes:
     labels:
-      - '$t$, с'
-      - '$T,\degree C$'
-    x limits: [0, 100]
-    y limits: [0, 1600]
-    precision: [0, 0]
+      - '$x$, м'
+      - '$y$, м'
+    x limits: [-0.3, 1]
+    y limits: [0, 0.4]
+    precision: [1, 1]
     single x axis: false
   charts:
     legend:
-      - "T1, ПРМ+ЛОГОС"
-      - "T2, ПРМ+ЛОГОС"
-      - "T1, тепловизор"
-      - "T2, тепловизор"
-    style: # ["стиль линии", "стиль маркера"]
-      - ["-", ""]
-      - ["-", ""]
-      - [":", ""]
-      - [":", ""]
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+      - "11"
+    style: ~
   figure size: [ 16.5, 10 ]
   dpi: 300
