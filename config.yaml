@@ -1,26 +1,20 @@
-#- name: data1.csv # имя csv файла
-#  axis description: [Время $t$, Скорость $v$] # подпись оси X, подпись оси Y
-#  single x axis: true
-#  legend: [$v_1$, $v_2$] # подпись легенды
-#  figure size: [16.5, 10] # размер картинки в см
-#  dpi: 300 # качество
-#
-#- name: data2.csv
-#  axis description: [Расстояние $x$, Сила $F$]
-#  single x axis: false
-#  legend: [$F_1$, $F_2$]
-#  figure size: [ 10, 10 ]
-#  dpi: 300
-
-- name: contour.csv
-  axis:
+- name: nozzreg.csv
+  axes:
     labels:
-      - "$x$, м"
-      - "$y$, м"
-    x limits: [-0.3, 0.2]
-    y limits: [0, 0.08]
-    precision: [1, 2]
-    single x axis: true
-  legend: ~
+      - "$x$, мм"
+      - '$q_w$, МВт/м$^2$'
+    x limits: [-400, 600]
+    y limits: [0, 14]
+    precision: [0, 0]
+    single x axis: false
+  charts:
+    legend:
+      - "эксперимент"
+      - "расчет NOZZReg"
+      - "расчет ПРМ"
+    style: # ["стиль линии", "стиль маркера"]
+      - ["-", ""]
+      - ["-", ""]
+      - ["", "+"]
   figure size: [ 16.5, 10 ]
   dpi: 300
