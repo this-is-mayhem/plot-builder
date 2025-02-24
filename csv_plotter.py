@@ -51,6 +51,7 @@ class csv_plotter:
             if charts_dict["style"] is not None and charts_dict["style"][i] is not None:
                 curve_style_dict["linestyle"] = charts_dict["style"][i][0]
                 curve_style_dict["marker"] = charts_dict["style"][i][1]
+                curve_style_dict["linewidth"] = charts_dict["style"][i][2]
             charts_styles.append(curve_style_dict)
         return charts_styles
 
