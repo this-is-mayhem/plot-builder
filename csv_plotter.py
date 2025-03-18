@@ -52,6 +52,9 @@ class csv_plotter:
                 curve_style_dict["linestyle"] = charts_dict["style"][i][0]
                 curve_style_dict["marker"] = charts_dict["style"][i][1]
                 curve_style_dict["linewidth"] = charts_dict["style"][i][2]
+                curve_style_dict["markersize"] = charts_dict["style"][i][3]
+                curve_style_dict["markeredgewidth"] = charts_dict["style"][i][4]
+                #curve_style_dict["markevery"] = 2
             charts_styles.append(curve_style_dict)
         return charts_styles
 

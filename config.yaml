@@ -1,18 +1,80 @@
+#style задается следующим образом: ['linestyle', 'marker', 'linewidth', 'markersize', 'markeredgewidth']
+
+# ----------------------------------------------------------------------------------------
+#- name: harper_nozzle.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$y$, м'
+#    x limits: [-0.5, 1.5]
+#    y limits: [0, 0.42]
+#    precision: [1, 1]
+#    single x axis: true
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 8.5, 6 ]
+#  dpi: 300
+
+#- name: nozzreg.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$q_w$, МВт/м$^2$'
+#    x limits: [-0.4, 0.6]
+#    y limits: [0, 15]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '1'
+#      - '2'
+#      - '3'
+#    style:
+#      - ['-','','2','1','1']
+#      - ['-','','2','1','1']
+#      - ['','.','1','2','1']
+#  figure size: [8.5, 6]
+#  dpi: 300
+
+# ----------------------------------------------------------------------------------------
+
+#- name: blhd_comparison.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$\delta$, мм'
+#    x limits: ~
+#    y limits: [0.2, 0.9]
+#    precision: [1, 1]
+#    single x axis: true
+#  charts:
+#    legend:
+#      - 'BLHD'
+#      - 'ЛОГОС'
+#    style:
+#      - ['','.','1','10','1']
+#      - ['','+','1','10','1']
+#  figure size: [8.5, 6]
+#  dpi: 300
+
+# ----------------------------------------------------------------------------------------
+
 #- name: injection_comparison_contour.csv
 #  axes:
 #    labels:
 #      - '$x$, м'
 #      - '$y$, м'
 #    x limits: [0, 0.3]
-#    y limits: [0, 0.08]
+#    y limits: [0, 0.1]
 #    precision: [1, 2]
 #    single x axis: false
 #  charts:
 #    legend: ~
 #    style: ~
-#  figure size: [ 16.5, 10 ]
+#  figure size: [ 8.5, 6 ]
 #  dpi: 300
-#
+
 #- name: injection_comparison.csv
 #  axes:
 #    labels:
@@ -20,15 +82,97 @@
 #      - '$\zeta_T$'
 #    x limits: [0, 0.3]
 #    y limits: [0, 1]
-#    precision: [2, 1]
+#    precision: [1, 1]
 #    single x axis: false
 #  charts:
 #    legend:
 #      - 'ПРМ'
 #      - 'формула'
 #    style: ~
-#  figure size: [ 16.5, 10 ]
+#  figure size: [ 8.5, 6 ]
 #  dpi: 300
+
+# ----------------------------------------------------------------------------------------
+
+#- name: RBAS_T_profiles_st.csv
+#  axes:
+#    labels:
+#      - 'Толщина, мм'
+#      - '$T$, K'
+#    x limits: [0, 6.5]
+#    y limits: [200, 1200]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '0,1'
+#      - '1'
+#      - '5'
+#      - '10'
+#      - '11'
+#      - '12'
+#      - '13'
+#      - '14'
+#    style: ~
+#  figure size: [ 8.5, 8 ]
+#  dpi: 300
+
+#- name: RBAS_T_profiles.csv
+#  axes:
+#    labels:
+#      - 'Толщина, мм'
+#      - '$T$, K'
+#    x limits: [0, 4.5]
+#    y limits: [200, 1200]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '0,1'
+#      - '1'
+#      - '5'
+#      - '10'
+#      - '11'
+#      - '12'
+#      - '13'
+#      - '14'
+#    style: ~
+#  figure size: [ 8.5, 8 ]
+#  dpi: 300
+
+#- name: RBAS_qw.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$q_{w}$, кВт/м$^2$'
+#    x limits: [6.8, 7.7]
+#    y limits: [0, 520]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '$t=0$ с'
+#      - '$t=11$ с'
+#    style: ~
+#  figure size: [ 8.5, 6 ]
+#  dpi: 300
+
+#- name: RBAS_mf.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - '$m_{w}$, кг/(с $\cdot$ м$^2$)'
+#    x limits: [6.8, 7.7]
+#    y limits: ~
+#    precision: [1, 2]
+#    single x axis: false
+#  charts:
+#    legend: ~
+#    style: ~
+#  figure size: [ 8.5, 6 ]
+#  dpi: 300
+
+# ----------------------------------------------------------------------------------------
 
 #- name: temps_comparison_K.csv
 #  axes:
@@ -41,12 +185,12 @@
 #    single x axis: false
 #  charts:
 #    legend:
-#      - 'T1, ПРМ+ЛОГОС'
-#      - 'T2, ПРМ+ЛОГОС'
-#      - 'T1, тепловизор'
-#      - 'T2, тепловизор'
+#      - '1'
+#      - '2'
+#      - '3'
+#      - '4'
 #    style: ~
-#  figure size: [ 16.5, 10 ]
+#  figure size: [ 8.5, 6 ]
 #  dpi: 300
 
 #- name: eff_T.csv
@@ -60,6 +204,23 @@
 #    single x axis: false
 #  charts:
 #    legend: ~
+#    style: ~
+#  figure size: [ 16.5, 10 ]
+#  dpi: 300
+
+#- name: efficiency_t.csv
+#  axes:
+#    labels:
+#      - '$x$, м'
+#      - 'Эффективность'
+#    x limits: [-0.3, 0.2]
+#    y limits: [0, 1]
+#    precision: [1, 1]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '$\zeta_T$'
+#      - '$\zeta_{TT}$'
 #    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
@@ -111,6 +272,8 @@
 #    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
+
+# ----------------------------------------------------------------------------------------
 
 #- name: vkladysh_temps.csv
 #  axes:
@@ -168,7 +331,7 @@
 #    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
-
+#
 #- name: vkladysh_v_wall_1.csv
 #  axes:
 #    labels:
@@ -177,277 +340,6 @@
 #    x limits: [0, 11]
 #    y limits: [0, 0.08]
 #    precision: [0, 2]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - 'Расчет по эксп. авторов'
-#      - 'Расчет по эксп. [...]'
-#      - 'Эксп. авторов'
-#      - 'Эксп. [...]'
-#    style:
-#      - ['-','']
-#      - ['-','']
-#      - ['','P']
-#      - ['','P']
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: sslines.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$y$, м'
-#    x limits: [-0.15, 0.15]
-#    y limits: [0, 0.18]
-#    precision: [2, 2]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - 'Контур $t=0$ с'
-#      - 'Контур $t=34$ с'
-#      - 'Сверхзвуковая линия $t=0$ с'
-#      - 'Сверхзвуковая линия $t=34$ с'
-#      - 'Минимальное сечение $t=0$ с'
-#      - 'Минимальное сечение $t=34$ с'
-#    style:
-#      - ['-','','1']
-#      - ['-','','1']
-#      - ['-','','0.8']
-#      - ['-','','0.8']
-#      - [':','','1.5']
-#      - [':','','1.5']
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: caverna.csv
-#  axes:
-#    labels:
-#      - '$x$, мм'
-#      - '$y$, мм'
-#    x limits: [255, 285]
-#    y limits: [122, 128]
-#    precision: [0, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '0 с'
-#      - '4 с'
-#      - '7 с'
-#      - '10 с'
-#      - '12 с'
-#      - '17 с'
-#      - '22 с'
-#      - '25 с'
-#      - '28 с'
-#      - '34 с'
-#    style:
-#      - ['-','','1.5'] # linestyle, marker, linewidth
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: kolomna_ablation_data.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$\delta$, мм'
-#    x limits: [-0.2, 1]
-#    y limits: [0, 14]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - 'Расчет'
-#      - 'Эксперимент 1'
-#      - 'Эксперимент 2'
-#      - 'Эксперимент 3'
-#      - 'Эксперимент 4'
-#    style:
-#      - ['-','','1'] # linestyle, marker, linewidth
-#      - ['','+','1']
-#      - ['','+','1']
-#      - ['','+','1']
-#      - ['','+','1']
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: p_wall_t0.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: [0.26, 0.28]
-#    y limits: ~
-#    precision: [3, 3]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#- name: p_wall_t12.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: [0.26, 0.28]
-#    y limits: ~
-#    precision: [3, 3]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#- name: p_wall_t17.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: [0.26, 0.28]
-#    y limits: ~
-#    precision: [3, 3]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#- name: p_wall_t22.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: [0.26, 0.28]
-#    y limits: ~
-#    precision: [3, 3]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#- name: p_wall_t34.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: [0.26, 0.28]
-#    y limits: ~
-#    precision: [3, 3]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: delta_S.csv
-#  axes:
-#    labels:
-#      - '$\delta_{max}$, мм'
-#      - '$S_{max}$, мм'
-#    x limits: [1.5, 3.5]
-#    y limits: [2, 10]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - 'Аналитическая зависимость'
-#      - '$t=17$ с'
-#      - '$t=22$ с'
-#      - '$t=25$ с'
-#      - '$t=28$ с'
-#      - '$t=34$ с'
-#    style:
-#      - ['-','','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_T_profiles_st.csv
-#  axes:
-#    labels:
-#      - 'Толщина, мм'
-#      - '$T$, K'
-#    x limits: [0, 7]
-#    y limits: [200, 1200]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0,1$ с'
-#      - '$t=1$ с'
-#      - '$t=5$ с'
-#      - '$t=10$ с'
-#      - '$t=11$ с'
-#      - '$t=12$ с'
-#      - '$t=13$ с'
-#      - '$t=14$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_T_profiles.csv
-#  axes:
-#    labels:
-#      - 'Толщина, мм'
-#      - '$T$, K'
-#    x limits: [0, 5]
-#    y limits: [200, 1200]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0,1$ с'
-#      - '$t=1$ с'
-#      - '$t=5$ с'
-#      - '$t=10$ с'
-#      - '$t=11$ с'
-#      - '$t=12$ с'
-#      - '$t=13$ с'
-#      - '$t=14$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_qw.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$q_{w}$, кВт/м$^2$'
-#    x limits: [6.8, 7.7]
-#    y limits: ~
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0$ с'
-#      - '$t=11$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_mf.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$m_{w}$, кг/(с $\cdot$ м$^2$)'
-#    x limits: [6.8, 7.7]
-#    y limits: ~
-#    precision: [1, 3]
 #    single x axis: false
 #  charts:
 #    legend:
@@ -463,6 +355,8 @@
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
+# ----------------------------------------------------------------------------------------
+
 #- name: sslines.csv
 #  axes:
 #    labels:
@@ -490,39 +384,66 @@
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
+#- name: sslines_nondim.csv
+#  axes:
+#    labels:
+#      - '$x/d_{кр}$'
+#      - '$y/d_{кр}$'
+#    x limits: [-2, 2]
+#    y limits: [0, 2.5]
+#    precision: [0, 1]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '1'
+#      - '2'
+#      - '3'
+#      - '4'
+#      - '5'
+#      - '6'
+#    style:
+#      - ['-','','1','1','1']
+#      - ['-','','1','1','1']
+#      - ['-','','0.8','1','1']
+#      - ['-','','0.8','1','1']
+#      - ['--','','1.5','1','1']
+#      - ['--','','1.5','1','1']
+#  figure size: [ 8.5, 8 ]
+#  dpi: 300
+
 #- name: caverna.csv
 #  axes:
 #    labels:
 #      - '$x$, мм'
 #      - '$y$, мм'
-#    x limits: [255, 285]
+#    x limits: ~
 #    y limits: [122, 128]
 #    precision: [0, 0]
 #    single x axis: false
 #  charts:
 #    legend:
-#      - '0 с'
-#      - '4 с'
-#      - '7 с'
-#      - '10 с'
-#      - '12 с'
-#      - '17 с'
-#      - '22 с'
-#      - '25 с'
-#      - '28 с'
-#      - '34 с'
+#      - '0'
+#      - '4'
+#      - '7'
+#      - '10'
+#      - '12'
+#      - '17'
+#      - '22'
+#      - '25'
+#      - '28'
+#      - '34'
 #    style:
-#      - ['-','','1.5'] # linestyle, marker, linewidth
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#      - ['-','','0.7']
-#  figure size: [ 16.5, 10 ]
+#      - ['-','','1.5','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#      - ['-','','0.7','1','1']
+#  figure size: [ 8.5, 8 ]
 #  dpi: 300
 
 #- name: kolomna_ablation_data.csv
@@ -632,114 +553,23 @@
 #    single x axis: false
 #  charts:
 #    legend:
-#      - 'Аналитическая зависимость'
-#      - '$t=17$ с'
-#      - '$t=22$ с'
-#      - '$t=25$ с'
-#      - '$t=28$ с'
-#      - '$t=34$ с'
+#      - '1'
+#      - '2'
+#      - '3'
+#      - '4'
+#      - '5'
+#      - '6'
 #    style:
-#      - ['-','','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#      - ['','X','1']
-#  figure size: [ 16.5, 10 ]
+#      - ['-','','1','1','1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#  figure size: [ 8.5, 8 ]
 #  dpi: 300
 
-#- name: RBAS_T_profiles_st.csv
-#  axes:
-#    labels:
-#      - 'Толщина, мм'
-#      - '$T$, K'
-#    x limits: [0, 7]
-#    y limits: [200, 1200]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0,1$ с'
-#      - '$t=1$ с'
-#      - '$t=5$ с'
-#      - '$t=10$ с'
-#      - '$t=11$ с'
-#      - '$t=12$ с'
-#      - '$t=13$ с'
-#      - '$t=14$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_T_profiles.csv
-#  axes:
-#    labels:
-#      - 'Толщина, мм'
-#      - '$T$, K'
-#    x limits: [0, 5]
-#    y limits: [200, 1200]
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0,1$ с'
-#      - '$t=1$ с'
-#      - '$t=5$ с'
-#      - '$t=10$ с'
-#      - '$t=11$ с'
-#      - '$t=12$ с'
-#      - '$t=13$ с'
-#      - '$t=14$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_qw.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$q_{w}$, кВт/м$^2$'
-#    x limits: [6.8, 7.7]
-#    y limits: ~
-#    precision: [1, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '$t=0$ с'
-#      - '$t=11$ с'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: RBAS_mf.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$m_{w}$, кг/(с $\cdot$ м$^2$)'
-#    x limits: [6.8, 7.7]
-#    y limits: ~
-#    precision: [1, 3]
-#    single x axis: false
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-
-#- name: harper_nozzle.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$y$, м'
-#    x limits: ~
-#    y limits: ~
-#    precision: [1, 2]
-#    single x axis: true
-#  charts:
-#    legend: ~
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
+# ----------------------------------------------------------------------------------------
 
 #- name: kolomna_h(T).csv
 #  axes:
