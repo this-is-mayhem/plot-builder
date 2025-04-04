@@ -63,32 +63,34 @@
 #- name: injection_comparison_contour.csv
 #  axes:
 #    labels:
-#      - '$x$, м'
-#      - '$y$, м'
-#    x limits: [0, 0.3]
-#    y limits: [0, 0.1]
-#    precision: [1, 2]
+#      - '$x$, мм'
+#      - '$y$, мм'
+#    x limits: ~
+#    y limits: ~
+#    precision: [0, 0]
 #    single x axis: false
 #  charts:
 #    legend: ~
 #    style: ~
 #  figure size: [ 8.5, 6 ]
 #  dpi: 300
-
+#
 #- name: injection_comparison.csv
 #  axes:
 #    labels:
-#      - '$x$, м'
+#      - '$s/d_{s}$'
 #      - '$\zeta_T$'
-#    x limits: [0, 0.3]
+#    x limits: ~
 #    y limits: [0, 1]
-#    precision: [1, 1]
+#    precision: [0, 1]
 #    single x axis: false
 #  charts:
 #    legend:
 #      - 'ПРМ'
-#      - 'формула'
-#    style: ~
+#      - 'Эксперимент'
+#    style:
+#      - ['-','','1','1','1' ]
+#      - ['','+','1','10','1']
 #  figure size: [ 8.5, 6 ]
 #  dpi: 300
 
@@ -291,7 +293,7 @@
 #    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
-#
+
 #- name: vkladysh_v_wall.csv
 #  axes:
 #    labels:
@@ -308,12 +310,32 @@
 #      - 'Мгновенная, эксп. Wei-hua'
 #      - 'Средняя, эксп. Wei-hua'
 #    style:
-#      - ['-','','1']
-#      - ['--','','1']
-#      - ['-','','1']
-#      - ['--','','1']
+#      - ['-','','1','1','1']
+#      - ['--','','1','1','1']
+#      - ['-','','1','1','1']
+#      - ['--','','1','1','1']
 #  figure size: [ 16.5, 12 ]
 #  dpi: 300
+
+#- name: vkladysh_v_wall_average.csv
+#  axes:
+#    labels:
+#      - '$t$, с'
+#      - '$v_{w}$, мм/с'
+#    x limits: [0, 10]
+#    y limits: [0, 0.3]
+#    precision: [0, 1]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - 'ЦК'
+#      - 'Литература'
+#    style:
+#      - ['-','','1','1','1']
+#      - ['-','','1','1','1']
+#  figure size: [ 8.5, 6 ]
+#  dpi: 300
+
 #
 #- name: vkladysh_temps_1.csv
 #  axes:
@@ -331,7 +353,7 @@
 #    style: ~
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
-#
+
 #- name: vkladysh_v_wall_1.csv
 #  axes:
 #    labels:
@@ -343,19 +365,76 @@
 #    single x axis: false
 #  charts:
 #    legend:
-#      - 'Расчет по эксп. ЦК'
-#      - 'Расчет по эксп. Wei-hua'
-#      - 'Эксп. ЦК'
-#      - 'Эксп. Wei-hua'
+#      - '1'
+#      - '2'
+#      - '3'
+#      - '4'
 #    style:
-#      - ['-','','1']
-#      - ['-','','1']
-#      - ['','P','1']
-#      - ['','P','1']
-#  figure size: [ 16.5, 10 ]
+#      - ['-','','1','1','1']
+#      - ['-','','1','1','1']
+#      - ['','x','1','10','1']
+#      - ['','x','1','10','1']
+#  figure size: [ 8.5, 6 ]
 #  dpi: 300
 
 # ----------------------------------------------------------------------------------------
+
+#- name: kolomna_h(T).csv
+#  axes:
+#    labels:
+#      - '$T$, K'
+#      - '$h$, кДж/кг'
+#    x limits: ~
+#    y limits: ~
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '0,08 МПа'
+#      - '1 МПа'
+#      - '5 МПа'
+#      - '9 МПа'
+#    style: ~
+#  figure size: [ 10, 6 ]
+#  dpi: 300
+#
+#- name: kolomna_cp(T).csv
+#  axes:
+#    labels:
+#      - '$T$, K'
+#      - '$c_p$, Дж/(кг $\cdot$ K)'
+#    x limits: ~
+#    y limits: ~
+#    precision: [0, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '0,08 МПа'
+#      - '1 МПа'
+#      - '5 МПа'
+#      - '9 МПа'
+#    style: ~
+#  figure size: [ 10, 6 ]
+#  dpi: 300
+#
+#- name: kolomna_mu(T).csv
+#  axes:
+#    labels:
+#      - '$T$, K'
+#      - '$\mu \cdot 10^5$, Па $\cdot$ с'
+#    x limits: ~
+#    y limits: ~
+#    precision: [0, 1]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - '0,08 МПа'
+#      - '1 МПа'
+#      - '5 МПа'
+#      - '9 МПа'
+#    style: ~
+#  figure size: [ 10, 6 ]
+#  dpi: 300
 
 #- name: sslines.csv
 #  axes:
@@ -384,32 +463,32 @@
 #  figure size: [ 16.5, 10 ]
 #  dpi: 300
 
-#- name: sslines_nondim.csv
-#  axes:
-#    labels:
-#      - '$x/d_{кр}$'
-#      - '$y/d_{кр}$'
-#    x limits: [-2, 2]
-#    y limits: [0, 2.5]
-#    precision: [0, 1]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '1'
-#      - '2'
-#      - '3'
-#      - '4'
-#      - '5'
-#      - '6'
-#    style:
-#      - ['-','','1','1','1']
-#      - ['-','','1','1','1']
-#      - ['-','','0.8','1','1']
-#      - ['-','','0.8','1','1']
-#      - ['--','','1.5','1','1']
-#      - ['--','','1.5','1','1']
-#  figure size: [ 8.5, 8 ]
-#  dpi: 300
+- name: sslines_nondim.csv
+  axes:
+    labels:
+      - '$x/d_{кр}$'
+      - '$y/d_{кр}$'
+    x limits: [-2, 2]
+    y limits: [0, 2.5]
+    precision: [1, 1]
+    single x axis: false
+  charts:
+    legend:
+      - 'Контур $t=0$ с'
+      - 'Контур $t=34$ с'
+      - 'Сверхзвуковая линия $t=0$ с'
+      - 'Сверхзвуковая линия $t=34$ с'
+      - 'Минимальное сечение $t=0$ с'
+      - 'Минимальное сечение $t=34$ с'
+    style:
+      - ['-','','1','1','1']
+      - ['-','','1','1','1']
+      - ['-','','0.8','1','1']
+      - ['-','','0.8','1','1']
+      - ['--','','1.5','1','1']
+      - ['--','','1.5','1','1']
+  figure size: [ 16.5, 10 ]
+  dpi: 300
 
 #- name: caverna.csv
 #  axes:
@@ -570,60 +649,3 @@
 #  dpi: 300
 
 # ----------------------------------------------------------------------------------------
-
-#- name: kolomna_h(T).csv
-#  axes:
-#    labels:
-#      - '$T$, K'
-#      - '$h$, кДж/кг'
-#    x limits: ~
-#    y limits: ~
-#    precision: [0, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '0,08 МПа'
-#      - '1 МПа'
-#      - '5 МПа'
-#      - '9 МПа'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#
-#- name: kolomna_cp(T).csv
-#  axes:
-#    labels:
-#      - '$T$, K'
-#      - '$c_p$, Дж/(кг $\cdot$ K)'
-#    x limits: ~
-#    y limits: ~
-#    precision: [0, 0]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '0,08 МПа'
-#      - '1 МПа'
-#      - '5 МПа'
-#      - '9 МПа'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300
-#
-#- name: kolomna_mu(T).csv
-#  axes:
-#    labels:
-#      - '$T$, K'
-#      - '$\mu \cdot 10^5$, Па $\cdot$ с'
-#    x limits: ~
-#    y limits: ~
-#    precision: [0, 1]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - '0,08 МПа'
-#      - '1 МПа'
-#      - '5 МПа'
-#      - '9 МПа'
-#    style: ~
-#  figure size: [ 16.5, 10 ]
-#  dpi: 300

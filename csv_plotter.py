@@ -91,18 +91,23 @@ class csv_plotter:
             cm = 1 / 2.54  # перевод сантиметров в дюймы для установки размера картинки
             plt.figure(figsize=(figure_size[0] * cm, figure_size[1] * cm))
 
+            lines = []
+            labels = legend if legend else []
 
             if data.shape[1] == 2:
                 # Для файлов с двумя столбцами: X и Y
-                plt.plot(data.iloc[:, 0], data.iloc[:, 1], **charts_styles[0])
+                line, = plt.plot(data.iloc[:, 0], data.iloc[:, 1], **charts_styles[0])
+                lines.append(line)
             elif single_x_axis:
                 # Общая ось X для Y1, Y2
                 for i in range(1, data.shape[1]):
-                    plt.plot(data.iloc[:, 0], data.iloc[:, i], **charts_styles[i-1])
+                    line, = plt.plot(data.iloc[:, 0], data.iloc[:, i], **charts_styles[i-1])
+                    lines.append(line)
             elif not single_x_axis:
                 # Разные оси X для каждой пары (X, Y)
                 for i in range(0, data.shape[1], 2):
-                    plt.plot(data.iloc[:, i], data.iloc[:, i + 1], **charts_styles[i // 2])
+                    line, = plt.plot(data.iloc[:, i], data.iloc[:, i + 1], **charts_styles[i // 2])
+                    lines.append(line)
 
             # Настройка осей и легенды
             plt.gca().set_xlim(x_lim)
@@ -112,11 +117,21 @@ class csv_plotter:
             plt.ylabel(f"{axes_labels[1]}", fontsize=14)
             plt.tick_params(axis="both", which="major", labelsize=14)
 
+            # число знаков после запятой для числовых подписей оси
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
+            # значение шага по осям
+            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.2))
+            # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.04))
+            # максимальное количество делений по осям
+            # plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(4))
+            # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(6))
 
-            if legend is not None:
-                plt.legend(fontsize=12)
+            # if legend and len(legend) == len(lines):
+            #     plt.legend(fontsize=14, loc='lower center', bbox_to_anchor=(0.5, 1.), ncol=4,
+            #                borderpad=0.2, labelspacing=0.2, columnspacing=0.8, handletextpad=0.1, handlelength=1)
+            if legend and len(legend) == len(lines):
+                plt.legend(lines, labels, fontsize=10)
             plt.grid(True)
             plt.tight_layout()
 
