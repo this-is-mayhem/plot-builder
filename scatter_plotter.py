@@ -44,7 +44,19 @@ ax.set_zlabel('$c$', fontsize=16, labelpad=15)
 ax.tick_params(axis='both', labelsize=16)
 ax.tick_params(axis='z', labelsize=16)
 
+# === Выделенная точка и её проекции ===
+p_i = 0.35
+T_i = 1400
+c_i = 0.6
+f_i = p_i * np.log(T_i) * (1 - c_i)
+
+# Точка
+ax.scatter(p_i, T_i, c_i, color='red', s=80)
+
+# Проекции на оси (пунктирные линии)
+ax.plot([p_i, p_i], [T_i, T_i], [0, c_i], 'r--', linewidth=1)
+ax.plot([p_i, p_i], [T_vals.min(), T_i], [c_i, c_i], 'r--', linewidth=1)
+ax.plot([p_vals.min(), p_i], [T_i, T_i], [c_i, c_i], 'r--', linewidth=1)
+
 plt.tight_layout()
-ax.view_init(elev=6, azim=-55)
-plt.savefig("kdtree.png", dpi=600)
-# plt.show()
+plt.show()
