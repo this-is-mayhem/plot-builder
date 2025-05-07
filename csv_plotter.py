@@ -113,25 +113,34 @@ class csv_plotter:
             plt.gca().set_xlim(x_lim)
             plt.gca().set_ylim(y_lim)
 
-            plt.xlabel(f"{axes_labels[0]}", fontsize=14)
-            plt.ylabel(f"{axes_labels[1]}", fontsize=14)
-            plt.tick_params(axis="both", which="major", labelsize=14)
+            plt.xlabel(f"{axes_labels[0]}", fontsize=18)
+            plt.ylabel(f"{axes_labels[1]}", fontsize=18)
+            plt.tick_params(axis="both", which="major", labelsize=18)
 
             # число знаков после запятой для числовых подписей оси
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
             # значение шага по осям
-            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.2))
-            # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.04))
+            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(1))
+            # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.5))
             # максимальное количество делений по осям
             # plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(4))
             # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(6))
 
+            # легенда сверху графика
             # if legend and len(legend) == len(lines):
-            #     plt.legend(fontsize=14, loc='lower center', bbox_to_anchor=(0.5, 1.), ncol=4,
+            #     plt.legend(fontsize=14, loc='lower center', bbox_to_anchor=(0.5, 1.), ncol=8,
             #                borderpad=0.2, labelspacing=0.2, columnspacing=0.8, handletextpad=0.1, handlelength=1)
+
+            # легенда справа графика
             if legend and len(legend) == len(lines):
-                plt.legend(lines, labels, fontsize=10)
+                plt.legend(fontsize=14, loc='center left', bbox_to_anchor=(1.0, 0.5), borderpad=0.2, labelspacing=0.2,
+                           columnspacing=0.8, handletextpad=0.1, handlelength=1)
+
+            # легенда на графике
+            # if legend and len(legend) == len(lines):
+            #     plt.legend(lines, labels, fontsize=14)
+
             plt.grid(True)
             plt.tight_layout()
 
