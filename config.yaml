@@ -55,6 +55,7 @@
 #    style:
 #      - ['','.','1','10','1']
 #      - ['','+','1','10','1']
+#    color: ["blue", "red"]
 #  figure size: [14, 9]
 #  dpi: 300
 
@@ -74,7 +75,7 @@
 #    style: ~
 #  figure size: [ 16, 10 ]
 #  dpi: 300
-#
+
 #- name: injection_comparison.csv
 #  axes:
 #    labels:
@@ -91,6 +92,7 @@
 #    style:
 #      - ['-','','1','1','1' ]
 #      - ['','+','1','10','1']
+#    color: ["blue", "red"]
 #  figure size: [ 16, 10 ]
 #  dpi: 300
 
@@ -174,25 +176,25 @@
 #  figure size: [ 14, 8 ]
 #  dpi: 300
 
-#- name: rbas_p_wall.csv
-#  axes:
-#    labels:
-#      - '$x$, м'
-#      - '$p_{w}$, Па'
-#    x limits: ~
-#    y limits: [0, 10]
-#    precision: [0, 0]
-#    single x axis: true
-#  charts:
-#    legend:
-#      - '2 кПа'
-#      - '1 кПа'
-#      - '0,5 кПа'
-#      - '0,1 кПа'
-#      - '0,01 кПа'
-#    style: ~
-#  figure size: [ 16, 7,5 ]
-#  dpi: 300
+- name: rbas_p_wall.csv
+  axes:
+    labels:
+      - '$x$, м'
+      - '$p_{w}$, кПа'
+    x limits: ~
+    y limits: [0, 10]
+    precision: [0, 0]
+    single x axis: true
+  charts:
+    legend:
+      - '2 кПа'
+      - '1 кПа'
+      - '0,5 кПа'
+      - '0,1 кПа'
+      - '0,01 кПа'
+    style: ~
+  figure size: [ 16, 7 ]
+  dpi: 300
 
 #- name: rbas_T_wall.csv
 #  axes:
@@ -211,7 +213,7 @@
 #      - '0,1 кПа'
 #      - '0,01 кПа'
 #    style: ~
-#  figure size: [ 16, 7,5 ]
+#  figure size: [ 16, 7.5 ]
 #  dpi: 300
 
 #- name: rbas_U_wall.csv
@@ -685,31 +687,31 @@
 #  figure size: [ 10.5, 6.5 ]
 #  dpi: 300
 
-- name: delta_S.csv
-  axes:
-    labels:
-      - '$\delta_{max}$, мм'
-      - '$S_{max}$, мм'
-    x limits: [1.5, 3.5]
-    y limits: [2, 10]
-    precision: [1, 0]
-    single x axis: false
-  charts:
-    legend:
-      - 'Аналит. зав.'
-      - '$t=17$ с'
-      - '$t=22$ с'
-      - '$t=25$ с'
-      - '$t=28$ с'
-      - '$t=34$ с'
-    style:
-      - ['-','','1','1','1']
-      - ['','X','1','6','0.1']
-      - ['','X','1','6','0.1']
-      - ['','X','1','6','0.1']
-      - ['','X','1','6','0.1']
-      - ['','X','1','6','0.1']
-  figure size: [ 16, 8 ]
-  dpi: 300
+#- name: delta_S.csv
+#  axes:
+#    labels:
+#      - '$\delta_{max}$, мм'
+#      - '$S_{max}$, мм'
+#    x limits: [1.5, 3.5]
+#    y limits: [2, 10]
+#    precision: [1, 0]
+#    single x axis: false
+#  charts:
+#    legend:
+#      - 'Аналит. зав.'
+#      - '$t=17$ с'
+#      - '$t=22$ с'
+#      - '$t=25$ с'
+#      - '$t=28$ с'
+#      - '$t=34$ с'
+#    style:
+#      - ['-','','1','1','1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#      - ['','X','1','6','0.1']
+#  figure size: [ 16, 8 ]
+#  dpi: 300
 
 # ----------------------------------------------------------------------------------------

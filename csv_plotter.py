@@ -55,6 +55,8 @@ class csv_plotter:
                 curve_style_dict["markersize"] = charts_dict["style"][i][3]
                 curve_style_dict["markeredgewidth"] = charts_dict["style"][i][4]
                 #curve_style_dict["markevery"] = 2
+            if charts_dict.get("color") and charts_dict["color"][i] is not None:
+                curve_style_dict["color"] = charts_dict["color"][i]
             charts_styles.append(curve_style_dict)
         return charts_styles
 
@@ -121,8 +123,8 @@ class csv_plotter:
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
             # значение шага по осям
-            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(1))
-            # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.5))
+            plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(1))
+            plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(2))
             # максимальное количество делений по осям
             # plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(4))
             # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(6))
