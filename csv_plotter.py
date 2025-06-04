@@ -123,8 +123,8 @@ class csv_plotter:
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
             # значение шага по осям
-            plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(1))
-            plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(2))
+            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.5))
+            plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.02))
             # максимальное количество делений по осям
             # plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(4))
             # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(6))
@@ -141,7 +141,7 @@ class csv_plotter:
 
             # легенда на графике
             # if legend and len(legend) == len(lines):
-            #     plt.legend(lines, labels, fontsize=14)
+            #     plt.legend(lines, labels, fontsize=18)
 
             plt.grid(True)
             plt.tight_layout()
