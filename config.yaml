@@ -76,25 +76,29 @@
 #  figure size: [ 16, 10 ]
 #  dpi: 300
 
-#- name: injection_comparison.csv
-#  axes:
-#    labels:
-#      - '$s/d_{s}$'
-#      - '$\zeta_T$'
-#    x limits: ~
-#    y limits: [0, 1]
-#    precision: [0, 1]
-#    single x axis: false
-#  charts:
-#    legend:
-#      - 'Расчет'
-#      - 'Эксперимент'
-#    style:
-#      - ['-','','1','1','1' ]
-#      - ['','+','1','10','1']
-#    color: ["blue", "red"]
-#  figure size: [ 16, 10 ]
-#  dpi: 300
+- name: injection_comparison.csv
+  axes:
+    labels:
+      - '$s/d_{s}$'
+      - '$\zeta_T$'
+    x limits: ~
+    y limits: [0, 1]
+    precision: [0, 1]
+    ticks value: [1, 0.1]
+    ticks max number: ~
+    single x axis: false
+    font size: 14
+  charts:
+    legend:
+      - 'Расчет'
+      - 'Эксперимент'
+    style:
+      - ['-','','1','1','1' ]
+      - ['','+','1','10','1']
+    color: ["blue", "red"]
+    font size: 14
+  figure size: [ 16, 10 ]
+  dpi: 300
 
 # ----------------------------------------------------------------------------------------
 
@@ -379,12 +383,12 @@
 #    single x axis: false
 #  charts:
 #    legend:
-#      - 'T1, ПРМ + Логос'
-#      - 'T2, ПРМ + Логос'
+#      - 'T1, расчет'
+#      - 'T2, расчет'
 #      - 'T1, эксперимент'
 #      - 'T2, эксперимент'
 #    style: ~
-#  figure size: [ 15, 9 ]
+#  figure size: [ 16, 10 ]
 #  dpi: 300
 
 #- name: eff_T.csv
@@ -646,22 +650,16 @@
 #    labels:
 #      - '$x/d_{кр}$'
 #      - '$\delta$, мм'
-#    x limits: ~
+#    x limits: [-1, 10]
 #    y limits: [0, 15]
 #    precision: [0, 0]
 #    single x axis: false
 #  charts:
 #    legend:
 #      - 'Расчет'
-#      - 'Эксперимент 1'
-#      - 'Эксперимент 2'
-#      - 'Эксперимент 3'
-#      - 'Эксперимент 4'
+#      - 'Эксперимент'
 #    style:
 #      - ['-','','1','1','1']
-#      - ['','+','1','7','1']
-#      - ['','+','1','7','1']
-#      - ['','+','1','7','1']
 #      - ['','+','1','7','1']
 #  figure size: [ 14, 8 ]
 #  dpi: 300

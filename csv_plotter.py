@@ -70,6 +70,9 @@ class csv_plotter:
             single_x_axis = file_config["axes"]["single x axis"]
             x_lim = file_config["axes"]["x limits"]
             y_lim = file_config["axes"]["y limits"]
+            ticks_value = file_config["axes"]["ticks value"]
+            ticks_max_number = file_config["axes"]["ticks max number"]
+            axes_fontsize = file_config["axes"]["font size"]
 
             # обработка информации о кривых графика
             legend = file_config["charts"]["legend"]
@@ -78,6 +81,7 @@ class csv_plotter:
             # обработка прочей информации
             figure_size = file_config["figure size"]
             figure_dpi = file_config["dpi"]
+            legend_fontsize = file_config["charts"]["font size"]
 
             # Считывание CSV файла
             file_path = os.path.join(self.dir, file_name)
@@ -115,34 +119,37 @@ class csv_plotter:
             plt.gca().set_xlim(x_lim)
             plt.gca().set_ylim(y_lim)
 
-            plt.xlabel(f"{axes_labels[0]}", fontsize=14)
-            plt.ylabel(f"{axes_labels[1]}", fontsize=14)
-            plt.tick_params(axis="both", which="major", labelsize=14)
+            plt.xlabel(f"{axes_labels[0]}", fontsize=axes_fontsize)
+            plt.ylabel(f"{axes_labels[1]}", fontsize=axes_fontsize)
+            plt.tick_params(axis="both", which="major", labelsize=axes_fontsize)
 
             # число знаков после запятой для числовых подписей оси
             plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: format_x_ticker(x, pos, axes_precision[0])))
             plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: format_y_ticker(y, pos, axes_precision[1])))
             # значение шага по осям
-            # plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.5))
-            # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.02))
+
+            if ticks_value:
+                plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(ticks_value[0]))
+                plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(ticks_value[1]))
+
             # максимальное количество делений по осям
-            # plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(4))
-            # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(6))
+            if ticks_max_number:
+                plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(ticks_max_number[0]))
+                plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(ticks_max_number[1]))
 
             # легенда сверху графика
             # if legend and len(legend) == len(lines):
-            #     plt.legend(fontsize=14, loc='lower center', bbox_to_anchor=(0.5, 1.), ncol=8,
+            #     plt.legend(fontsize=legend_fontsize, loc='lower center', bbox_to_anchor=(0.5, 1.), ncol=8,
             #                borderpad=0.2, labelspacing=0.2, columnspacing=0.8, handletextpad=0.1, handlelength=1)
 
             # легенда справа графика
             # if legend and len(legend) == len(lines):
-            #     plt.legend(fontsize=14, loc='center left', bbox_to_anchor=(1.0, 0.5), borderpad=0.2, labelspacing=0.2,
+            #     plt.legend(fontsize=legend_fontsize, loc='center left', bbox_to_anchor=(1.0, 0.5), borderpad=0.2, labelspacing=0.2,
             #                columnspacing=0.8, handletextpad=0.1, handlelength=1)
 
             # легенда на графике
             if legend and len(legend) == len(lines):
-                plt.legend(lines, labels, fontsize=14)
-
+                plt.legend(lines, labels, fontsize=legend_fontsize)
             plt.grid(True)
             plt.tight_layout()
 
